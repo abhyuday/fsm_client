@@ -1,0 +1,130 @@
+{
+ "authorize_payment_success_st": [
+  {
+   "EventType": "start_stock_check_evt",
+   "Prob": 1,
+   "Delay": 0.4
+  }
+ ],
+ "check_refills_st": [
+  {
+   "EventType": "has_refills_evt",
+   "Prob": 0.5,
+   "Delay": 0.1
+  },
+  {
+   "EventType": "has_no_refills_evt",
+   "Prob": 0.5,
+   "Delay": 1
+  }
+ ],
+ "contacted_md_st": [
+  {
+   "EventType": "md_approved_refills_evt",
+   "Prob": 1,
+   "Delay": 2
+  }
+ ],
+ "copay_approval_sent_st": [
+  {
+   "EventType": "copay_approved_evt",
+   "Prob": 0.5,
+   "Delay": 0.3
+  },
+  {
+   "EventType": "copay_not_approved_evt",
+   "Prob": 0.5,
+   "Delay": 1
+  }
+ ],
+ "has_no_refills_st": [
+  {
+   "EventType": "contact_md_evt",
+   "Prob": 1,
+   "Delay": 1
+  }
+ ],
+ "has_refills_st": [
+  {
+   "EventType": "start_insurance_verification_evt",
+   "Prob": 1,
+   "Delay": 0.5
+  }
+ ],
+ "initail_rx_st": [
+  {
+   "EventType": "check_refills_evt",
+   "Prob": 1,
+   "Delay": 0.1
+  }
+ ],
+ "insurance_to_be_verified_st": [
+  {
+   "EventType": "verified_insurance_success_evt",
+   "Prob": 0.5,
+   "Delay": 0.4
+  },
+  {
+   "EventType": "verified_insurance_fail_evt",
+   "Prob": 0.5,
+   "Delay": 2
+  }
+ ],
+ "insurance_verification_success_st": [
+  {
+   "EventType": "send_copay_approval_evt",
+   "Prob": 1,
+   "Delay": 0.4
+  }
+ ],
+ "payment_to_be_charged_st": [
+  {
+   "EventType": "payment_exception_evt",
+   "Prob": 0.5,
+   "Delay": 2
+  },
+  {
+   "EventType": "payment_success_evt",
+   "Prob": 0.5,
+   "Delay": 0.1
+  }
+ ],
+ "refill_not_due_st": [
+  {
+   "EventType": "verified_insurance_success_evt",
+   "Prob": 1,
+   "Delay": 0.3
+  }
+ ],
+ "shipped_st": [
+  {
+   "EventType": "delivery_sucess_evt",
+   "Prob": 1,
+   "Delay": 2
+  }
+ ],
+ "stock_to_be_verified_st": [
+  {
+   "EventType": "stock_check_fail_evt",
+   "Prob": 0.5,
+   "Delay": 2
+  },
+  {
+   "EventType": "stock_check_success_evt",
+   "Prob": 0.5,
+   "Delay": 0.3
+  }
+ ],
+ "to_be_shipped_st": [
+  {
+   "EventType": "ship_exception_evt",
+   "Prob": 0.5,
+   "Delay": 2
+  },
+  {
+   "EventType": "ship_success_evt",
+   "Prob": 0.5,
+   "Delay": 0.1
+  }
+ ]
+}
