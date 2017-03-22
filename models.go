@@ -1,9 +1,5 @@
 package rxengine
 
-import (
-	"github.com/abhyuday/go-fsm"
-)
-
 //STATES
 const (
 	InitialRxState                    = "initail_rx_st"
@@ -54,14 +50,11 @@ const (
 
 //Transition - determines the probability that a particular event happens
 type Transition struct {
-	EventType string
-	Prob      float64
-	Delay     float64
-    TargetState string
-}
-
-//RxMachine - determines the current state of the Rx as it flows throw different states
-type RxMachine struct {
-	CurrentDay float64
-	FSM        *fsm.FSM
+	EventType             string  `json:"eventType" bson:"eventType,omitempty"`
+	Prob                  float64 `json:"prob" bson:"prob,omitempty"`
+	Delay                 float64 `json:"delay" bson:"delay,omitempty"`
+	TargetState           string  `json:"targetState" bson:"targetState,omitempty"`
+	DelayFromOrgin        float64 `json:"delayFromOrgin" bson:"delayFromOrgin,omitempty"`
+	MovingDelayFromOrigin float64 `json:"movingDelayFromOrigin" bson:"movingDelayFromOrigin,omitempty"`
+	MovingDelayToTarget   float64 `json:"movingDelayToTarget" bson:"movingDelayToTarget,omitempty"`
 }

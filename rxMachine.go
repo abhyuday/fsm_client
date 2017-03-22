@@ -5,6 +5,12 @@ import (
 	"github.com/abhyuday/go-fsm"
 )
 
+//RxMachine - determines the current state of the Rx as it flows throw different states
+type RxMachine struct {
+	CurrentDay float64
+	FSM        *fsm.FSM
+}
+
 var rxMachineEvents = fsm.Events{
 
 	//check refills flows
