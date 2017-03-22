@@ -1,4 +1,4 @@
-{
+{"root" : {
  "authorize_payment_success_st": [
   {
    "EventType": "start_stock_check_evt",
@@ -127,4 +127,5 @@
    "Delay": 0.1
   }
  ]
+}
 }
