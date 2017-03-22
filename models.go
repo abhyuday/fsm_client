@@ -54,7 +54,7 @@ type Transition struct {
 	Prob                  float64 `json:"prob" bson:"prob,omitempty"`
 	Delay                 float64 `json:"delay" bson:"delay,omitempty"`
 	TargetState           string  `json:"targetState" bson:"targetState,omitempty"`
-	DelayFromOrgin        float64 `json:"delayFromOrgin" bson:"delayFromOrgin,omitempty"`
 	MovingDelayFromOrigin float64 `json:"movingDelayFromOrigin" bson:"movingDelayFromOrigin,omitempty"`
 	MovingDelayToTarget   float64 `json:"movingDelayToTarget" bson:"movingDelayToTarget,omitempty"`
+	delayFromOrgin        float64
 }

@@ -25,6 +25,19 @@ func (rxGraph *RxGraph) Init(isDemo bool) {
 	rxGraph.isDemo = isDemo
 }
 
+//Reset - Resets the variables
+func (rxGraph *RxGraph) Reset() {
+	rxGraph.runningDelay = 0.
+
+	//reset the transitions
+	for k := range rxGraph.StateTransitionMap {
+		for tIndex := range rxGraph.StateTransitionMap[k] {
+			rxGraph.StateTransitionMap[k][tIndex].MovingDelayToTarget = 0.
+			rxGraph.StateTransitionMap[k][tIndex].MovingDelayFromOrigin = 0.
+		}
+	}
+}
+
 //Execute - executes the engine specified number of times
 func (rxGraph *RxGraph) Execute(numRuns float64) float64 {
 	i := 1.
@@ -64,7 +77,7 @@ func (rxGraph *RxGraph) SingleRun(currentRun float64) {
 
 		rxGraph.runningDelay = rxGraph.runningDelay + transition.Delay
 		currentState = transition.TargetState
-		transition.DelayFromOrgin = rxGraph.runningDelay
+		transition.delayFromOrgin = rxGraph.runningDelay
 		transition.MovingDelayFromOrigin = movingAvg(transition.MovingDelayFromOrigin, rxGraph.runningDelay, currentRun)
 	}
 }
@@ -77,6 +90,10 @@ func (rxGraph *RxGraph) updateMovingDelayToTargetForAllStates(movingDelayFromTar
 	}
 }
 
+//RunningDelay - gets the running delay
+func (rxGraph *RxGraph) RunningDelay() float64 {
+	return rxGraph.runningDelay
+}
 func movingAvg(avg float64, newVal float64, total float64) float64 {
 	return avg + (newVal-avg)/total
 }
